@@ -34,7 +34,6 @@ public class Ball extends Actor {
 		isMovingDownTrue();
 		stayingInScreen();
 		ballFalling();
-
 		setLocation((int) x, (int) y);
 	}
 
@@ -51,9 +50,9 @@ public class Ball extends Actor {
 	}
 
 	public void bounceHigher() {
-		if (Greenfoot.isKeyDown("space")) {
-			y -= 2;
-		}
+//		if (Greenfoot.isKeyDown("space")) {
+//			y -= 2;
+//		}
 	}
 	
 	public void isMovingDownTrue() {
