@@ -1,5 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-
 import greenfoot.GreenfootImage;
 import greenfoot.World;
 
@@ -15,6 +14,7 @@ public class Ball extends Actor {
 	private double velY = 1.2;
 	private double accel = 1.6;
 	private boolean isMovingDown;
+	private int time = 0;
 
 	public Ball(World w, double x, double y) {
 		super();
@@ -24,9 +24,11 @@ public class Ball extends Actor {
 	}
 
 	public void act() {
-		// if(isTouching(Obsticle.class)) {
-		// y--;;
-		// }
+		if (velY != 0) {
+			velY += accel;
+			y += velY;
+		}
+
 		bouncingOffTheTop();
 		moveRight();
 		moveLeft();
@@ -34,27 +36,28 @@ public class Ball extends Actor {
 		isMovingDownTrue();
 		stayingInScreen();
 		ballFalling();
+		time++;
 		setLocation((int) x, (int) y);
 	}
 
 	public void moveRight() {
-		if (Greenfoot.isKeyDown("right")) {
+		if (Greenfoot.isKeyDown("d")) {
 			x += 6;
 		}
 	}
 
 	public void moveLeft() {
-		if (Greenfoot.isKeyDown("left")) {
+		if (Greenfoot.isKeyDown("a")) {
 			x -= 6;
 		}
 	}
 
 	public void bounceHigher() {
-//		if (Greenfoot.isKeyDown("space")) {
-//			y -= 2;
-//		}
+		if (Greenfoot.mousePressed(getWorld())) {
+			velY -= 20;
+		}
 	}
-	
+
 	public void isMovingDownTrue() {
 		if (velY > 0) {
 			isMovingDown = true;
@@ -65,12 +68,9 @@ public class Ball extends Actor {
 	}
 
 	public void ballFalling() {
-		if (getObjectsAtOffset(0, 10, SimpleShape.class) != null) {
-			if (velY != 0) {
-				velY += accel;
-			}
-			y += velY;
-			turn(5);
+		if (isTouching(SimpleShape.class) && time >= 4 ) {
+			velY *= -.96;
+			time = 0;
 		}
 	}
 
@@ -84,9 +84,9 @@ public class Ball extends Actor {
 		if (y > 590) {
 			if (isMovingDown) {
 				velY *= -.96;
-				
 				System.out.println(velY);
-			} if(velY > -.9 && velY < .9) {
+			}
+			if (velY > -.9 && velY < .9) {
 				velY = 0;
 			}
 		}

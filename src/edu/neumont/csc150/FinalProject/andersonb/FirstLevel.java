@@ -10,7 +10,6 @@ public class FirstLevel extends World {
 	private static final Integer HEIGHT = 600;
 	private FirstLevelBall b;
 	private SecondLevelBall sb;
-	private Obsticle o;
 	private SimpleShape ss;
 	private int timer = 0;
 
@@ -24,7 +23,6 @@ public class FirstLevel extends World {
 	public void act() {
 		timer++;
 		if (timer == 150) {
-//			o = new Obsticle(this, 1000, 600);
 			ss = new SimpleShape(this, 1000, 500, BallColors.getColor());
 			timer = 0;
 		}
