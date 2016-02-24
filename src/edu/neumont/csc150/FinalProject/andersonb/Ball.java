@@ -1,4 +1,5 @@
 package edu.neumont.csc150.FinalProject.andersonb;
+
 import greenfoot.GreenfootImage;
 import greenfoot.World;
 
@@ -15,28 +16,38 @@ public class Ball extends Actor {
 	private double accel = 1.6;
 	private boolean isMovingDown;
 	private int time = 0;
+	private World w;
+//	private SimpleShape simpleShape;
 
 	public Ball(World w, double x, double y) {
 		super();
 		w.addObject(this, (int) x, (int) y);
 		this.x = x;
 		this.y = y;
+		this.w = w;	
+//		simpleShape = new SimpleShape (w, 800, 400, BallColors.BLUE);
+
 	}
 
 	public void act() {
+		System.out.println(velY);
 		if (velY != 0) {
 			velY += accel;
 			y += velY;
+		} else {
+			if (velY > -.9 && velY < .9) {
+				velY = 0;
+			}
+		ballFalling();
 		}
-
+		time++;		
 		bouncingOffTheTop();
 		moveRight();
 		moveLeft();
 		bounceHigher();
 		isMovingDownTrue();
 		stayingInScreen();
-		ballFalling();
-		time++;
+//		ballFalling();
 		setLocation((int) x, (int) y);
 	}
 
@@ -68,7 +79,7 @@ public class Ball extends Actor {
 	}
 
 	public void ballFalling() {
-		if (isTouching(SimpleShape.class) && time >= 4 ) {
+		if (isTouching(SimpleShape.class) && time >= 4) {
 			velY *= -.96;
 			time = 0;
 		}
@@ -84,12 +95,20 @@ public class Ball extends Actor {
 		if (y > 590) {
 			if (isMovingDown) {
 				velY *= -.96;
-				System.out.println(velY);
 			}
 			if (velY > -.9 && velY < .9) {
 				velY = 0;
 			}
 		}
+			if (isTouching(SimpleShape.class)) {
+				if (isMovingDown) {
+					velY *= -.96;
+				}
+				if (velY > -.9 && velY < .9) {
+					velY = 0;
+				}
+		}
+		
 	}
 
 	public void bouncingOffTheTop() {
