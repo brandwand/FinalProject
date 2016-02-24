@@ -23,7 +23,7 @@ public class FirstLevel extends World {
 	public void act() {
 		timer++;
 		if (timer == 150) {
-			ss = new SimpleShape(this, 1000, 500, BallColors.getColor());
+//			ss = new SimpleShape(this, 1000, 500, BallColors.getColor());
 			timer = 0;
 		}
 	}
