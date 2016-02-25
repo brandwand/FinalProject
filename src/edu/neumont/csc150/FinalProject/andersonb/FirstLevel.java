@@ -1,5 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-
 import java.util.Random;
 
 import greenfoot.GreenfootImage;
@@ -20,6 +19,10 @@ public class FirstLevel extends Levels {
 
 	@Override
 	public void act() {
-	
+		time++;
+		if(time == 150) {
+			shape = new SimpleShape(this, 1000, rand.nextInt(200) + 300, BallColors.getColor());
+			time = 0;
+		}
 	}
 }

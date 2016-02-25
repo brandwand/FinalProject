@@ -9,8 +9,8 @@ public class Levels extends World {
 	private static final Integer WIDTH = 800;
 	private static final Integer HEIGHT = 600;
 	Random rand = new Random();
-	SimpleShape shape;
-	Score score;
+	protected SimpleShape shape;
+	protected Score score;
 	protected int time = 0;
 
 	public Levels() {
