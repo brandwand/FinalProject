@@ -5,26 +5,21 @@ import java.util.Random;
 import greenfoot.GreenfootImage;
 import greenfoot.World;
 
-public class FirstLevel extends World {
+public class FirstLevel extends Levels {
 	private static final Integer WIDTH = 800;
 	private static final Integer HEIGHT = 600;
 	private FirstLevelBall b;
 	private SecondLevelBall sb;
 	private SimpleShape ss;
-	private int timer = 0;
-
+	private Score score;
+	Random rand = new Random();
 	public FirstLevel() {
-		super(800, 600, 1, false);
+		super();
 		 b = new FirstLevelBall(this, 25, 300, BallColors.getColor());
-//		sb = new SecondLevelBall(this, 25, 300, BallColors.getColor());
-	}
+		 }
 
 	@Override
 	public void act() {
-		timer++;
-		if (timer == 150) {
-//			ss = new SimpleShape(this, 1000, 500, BallColors.getColor());
-			timer = 0;
-		}
+	
 	}
 }
