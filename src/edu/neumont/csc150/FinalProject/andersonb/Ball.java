@@ -25,6 +25,12 @@ public class Ball extends Actor {
 	}
 
 	public void act() {
+		if(isTouching(Coin.class)) {
+			Levels Level =(Levels)getWorld();
+			Score score = Level.getScore();
+			score.addScore();
+			removeTouching(Coin.class);
+		}
 		time++;
 		System.out.println(velY);
 		gravity();
@@ -43,7 +49,6 @@ public class Ball extends Actor {
 			y += velY;
 		} else {
 			velY = -2;
-			Collision();
 		}
 	}
 
@@ -61,7 +66,7 @@ public class Ball extends Actor {
 
 	public void bounceHigher() {
 		if (Greenfoot.mousePressed(getWorld())) {
-			velY -= 20;
+			velY = -25;
 		}
 	}
 
@@ -72,13 +77,6 @@ public class Ball extends Actor {
 			isMovingDown = false;
 		}
 
-	}
-
-	public void Collision() {
-		if (isTouching(SimpleShape.class) && time == 4) {
-			velY *= -.96;
-			time = 0;
-		}
 	}
 
 	public void stayingInScreen() {

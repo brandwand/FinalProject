@@ -14,6 +14,7 @@ public class SimpleShape extends Actor {
 	private GreenfootImage i;
 	Random rand = new Random();
 	BallColors b;
+	private Ball ball;
 
 	public SimpleShape(World w, double x, double y, BallColors b) {
 		
@@ -28,8 +29,7 @@ public class SimpleShape extends Actor {
 	}
 	
 	public void act() {
-		x -= 3;
+		y += 3;
 		setLocation((int) x, (int) y);
-
 	}
 }
