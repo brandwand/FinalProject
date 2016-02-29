@@ -1,6 +1,5 @@
 package edu.neumont.csc150.FinalProject.andersonb;
 
-
 import java.util.Random;
 
 import greenfoot.GreenfootImage;
@@ -12,14 +11,18 @@ public class Levels extends World {
 	Random rand = new Random();
 	protected SimpleShape shape;
 	protected Score score;
+	protected Lives lives;
 	protected int time = 0;
 	protected Coin coin;
+	protected Platform platform;
 	protected int randomY = rand.nextInt(200) + 300;
 
 	public Levels() {
 		super(800, 600, 1, false);
 		score = new Score(this, 50, 25);
-		shape = new SimpleShape(this, 1000, randomY, BallColors.getColor());
+		lives = new Lives(this, 750, 25);
+
+
 		coin = new Coin(this, 1000, randomY - 50);
 		
 	}
@@ -29,5 +32,9 @@ public class Levels extends World {
 	
 	public Score getScore() {
 		return score;
+	}
+	
+	public Lives getLives() {
+		return lives;
 	}
 }

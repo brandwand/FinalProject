@@ -25,14 +25,9 @@ public class Ball extends Actor {
 	}
 
 	public void act() {
-		if(isTouching(Coin.class)) {
-			Levels Level =(Levels)getWorld();
-			Score score = Level.getScore();
-			score.addScore();
-			removeTouching(Coin.class);
-		}
 		time++;
-		System.out.println(velY);
+		touchedGround();
+		touchedCoin();
 		gravity();
 		bouncingOffTheTop();
 		moveRight();
@@ -41,6 +36,23 @@ public class Ball extends Actor {
 		isMovingDownTrue();
 		stayingInScreen();
 		setLocation((int) x, (int) y);
+	}
+	
+	public void touchedCoin() {
+		if(isTouching(Coin.class)) {
+			Levels Level =(Levels)getWorld();
+			Score score = Level.getScore();
+			score.addScore();
+			removeTouching(Coin.class);
+		}
+	}
+	
+	public void touchedGround() {
+		if(y > 590) {
+			Levels Level =(Levels)getWorld();
+			Lives lives = Level.getLives();
+			lives.subtractLives();
+		}
 	}
 
 	public void gravity() {
@@ -80,13 +92,13 @@ public class Ball extends Actor {
 	}
 
 	public void stayingInScreen() {
-		if (x < 10) {
+		if (x < 15) {
+			x = 785;
+		}
+		if (x > 785) {
 			x = 10;
 		}
-		if (x > 790) {
-			x = 790;
-		}
-		if (y > 590) {
+		if (y > 585) {
 			if (isMovingDown) {
 				velY *= -.96;
 			}
@@ -94,7 +106,7 @@ public class Ball extends Actor {
 				velY = 0;
 			}
 		}
-		if (isTouching(SimpleShape.class)) {
+		if (isTouching(SimpleShape.class) || isTouching(Platform.class)) {
 			if (isMovingDown) {
 				velY *= -.96;
 			}

@@ -4,12 +4,12 @@ import greenfoot.Actor;
 import greenfoot.GreenfootImage;
 import greenfoot.World;
 
-public class Score extends Actor {
-	private int score = 0;
+public class Lives extends Actor {
+	private int lives = 3;
 	private double x;
 	private double y;
 
-	public Score(World world, double x, double y) {
+	public Lives(World world, double x, double y) {
 		world.addObject(this, (int) x, (int) y);
 		this.x = x;
 		this.y = y;
@@ -17,19 +17,19 @@ public class Score extends Actor {
 
 	public void act() {
 		Color c = new Color(0, 0, 0, 0);
-		setImage(new GreenfootImage("Score: " + score, 24, Color.ORANGE, c));
+		setImage(new GreenfootImage("Lives: " + lives, 24, Color.ORANGE, c));
 		setLocation((int) x, (int) y);
 	}
 
-	public void addScore() {
-		score++;
+	public void addLives() {
+		lives++;
 	}
 
-	public void subtractScore() {
-		score--;
+	public void subtractLives() {
+		lives--;
 	}
 	
-	public int getScore() {
-		return score;
+	public int getLives() {
+		return lives;
 	}
 }

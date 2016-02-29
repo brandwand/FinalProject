@@ -1,5 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-
 import java.awt.Color;
 
 import greenfoot.GreenfootImage;
@@ -15,9 +14,9 @@ public class FirstLevelBall extends Ball {
 	public FirstLevelBall(World w, double x, double y, BallColors b) {
 		super(w, x, y);
 		this.b = b;
-		i = new GreenfootImage(15, 15);
+		i = new GreenfootImage(25, 25);
 		b.drawColor(i);
-		i.fillOval(0, 0, 15, 15);
+		i.fillOval(0, 0, 25, 25);
 		
 		setImage(i);
 	}

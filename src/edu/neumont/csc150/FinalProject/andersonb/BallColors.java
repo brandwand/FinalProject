@@ -1,5 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-
 import java.awt.Color;
 import java.util.Random;
 
@@ -10,7 +9,6 @@ public enum BallColors {
 		@Override
 		public void drawColor(GreenfootImage image) {
 			image.setColor(Color.GREEN);
-			image.fillOval(0, 0, 15, 15);
 		}
 	},
 
@@ -18,7 +16,6 @@ public enum BallColors {
 		@Override
 		public void drawColor(GreenfootImage image) {
 			image.setColor(Color.BLUE);
-			image.fillOval(0, 0, 15, 15);
 		}
 	}, 
 
@@ -31,6 +28,7 @@ public enum BallColors {
 	},
 
 	ORANGE {
+		@Override
 		public void drawColor(GreenfootImage image) {
 			image.setColor(Color.ORANGE);
 		};

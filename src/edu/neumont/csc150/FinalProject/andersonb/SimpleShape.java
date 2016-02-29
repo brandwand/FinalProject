@@ -1,5 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-
 import java.awt.Color;
 
 import greenfoot.Actor;
@@ -14,13 +13,18 @@ public class SimpleShape extends Actor {
 	private GreenfootImage i;
 	Random rand = new Random();
 	BallColors b;
+	ShapeSize s;
 	private Ball ball;
-
-	public SimpleShape(World w, double x, double y, BallColors b) {
-		
+	private boolean isXMovingLeft = rand.nextBoolean();
+	private boolean isXMovingRight = rand.nextBoolean();
+	public SimpleShape(World w, double x, double y, BallColors b, ShapeSize s) {
 		this.b = b;
+		this.s= s;
 		i = new GreenfootImage(300, 25);
+		
 		b.drawColor(i);
+		s.drawSize(i);
+		
 		i.fillRect(0, 0, 300, 25);
 		setImage(i);
 		this.x = x;
@@ -30,6 +34,11 @@ public class SimpleShape extends Actor {
 	
 	public void act() {
 		y += 3;
+		if(isXMovingLeft /*&& x >= 400*/) {
+			x -= 1;
+		} else if(isXMovingRight /*&& x <= 400*/) {
+			x += 1; 
+		}
 		setLocation((int) x, (int) y);
 	}
 }

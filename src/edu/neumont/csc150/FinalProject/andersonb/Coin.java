@@ -1,5 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
 import greenfoot.World;

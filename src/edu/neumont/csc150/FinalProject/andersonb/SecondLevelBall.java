@@ -1,5 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-
 import java.awt.Color;
 
 import greenfoot.GreenfootImage;
