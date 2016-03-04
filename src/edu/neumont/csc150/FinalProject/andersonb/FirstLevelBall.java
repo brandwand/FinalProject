@@ -17,7 +17,6 @@ public class FirstLevelBall extends Ball {
 		i = new GreenfootImage(25, 25);
 		b.drawColor(i);
 		i.fillOval(0, 0, 25, 25);
-		
 		setImage(i);
 	}
 }

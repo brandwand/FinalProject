@@ -6,7 +6,6 @@ import greenfoot.GreenfootImage;
 import greenfoot.World;
 import java.util.Random;
 
-
 public class SimpleShape extends Actor {
 
 	private double x, y;
@@ -17,27 +16,36 @@ public class SimpleShape extends Actor {
 	private Ball ball;
 	private boolean isXMovingLeft = rand.nextBoolean();
 	private boolean isXMovingRight = rand.nextBoolean();
-	public SimpleShape(World w, double x, double y, BallColors b, ShapeSize s) {
+	private int length = 0;
+	private int time = 0;
+	private int changeX = 0;
+	private int changeY = 0;
+	private boolean whereStopped;
+
+	public SimpleShape(World w, double x, double y, BallColors b, ShapeSize s, int length, int changeX, int changeY) {
 		this.b = b;
-		this.s= s;
-		i = new GreenfootImage(300, 25);
-		
+		this.s = s;
+		this.changeX = changeX;
+		this.changeY = changeY;
+		this.length = length;
+		i = new GreenfootImage(length, 25);
 		b.drawColor(i);
 		s.drawSize(i);
-		
-		i.fillRect(0, 0, 300, 25);
+
 		setImage(i);
 		this.x = x;
 		this.y = y;
 		w.addObject(this, (int) x, (int) y);
 	}
-	
+
 	public void act() {
-		y += 3;
-		if(isXMovingLeft /*&& x >= 400*/) {
-			x -= 1;
-		} else if(isXMovingRight /*&& x <= 400*/) {
-			x += 1; 
+		y += changeY;
+		if (x > 175 && x < 625) {
+			if (isXMovingLeft) {
+				x -= changeX;
+			} else if (isXMovingRight) {
+				x += changeX;
+			}
 		}
 		setLocation((int) x, (int) y);
 	}

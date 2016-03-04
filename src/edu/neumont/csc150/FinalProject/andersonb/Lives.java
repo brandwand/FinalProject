@@ -1,6 +1,7 @@
 package edu.neumont.csc150.FinalProject.andersonb;
 import java.awt.Color;
 import greenfoot.Actor;
+import greenfoot.Greenfoot;
 import greenfoot.GreenfootImage;
 import greenfoot.World;
 
@@ -19,6 +20,9 @@ public class Lives extends Actor {
 		Color c = new Color(0, 0, 0, 0);
 		setImage(new GreenfootImage("Lives: " + lives, 24, Color.ORANGE, c));
 		setLocation((int) x, (int) y);
+		if(lives == 0) {
+			Greenfoot.setWorld(new MainMenu());
+		}
 	}
 
 	public void addLives() {

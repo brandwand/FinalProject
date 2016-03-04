@@ -24,7 +24,7 @@ public class Platform extends Actor {
 	public void act() {	
 		time++;
 		if(time >= 175) {
-		y++;
+		y += 3;
 		}
 		setLocation((int) x, (int) y);
 	}

@@ -12,10 +12,10 @@ public enum BallColors {
 		}
 	},
 
-	BLUE {
+	MAGENTA {
 		@Override
 		public void drawColor(GreenfootImage image) {
-			image.setColor(Color.BLUE);
+			image.setColor(Color.MAGENTA);
 		}
 	}, 
 
@@ -27,10 +27,10 @@ public enum BallColors {
 
 	},
 
-	ORANGE {
+	GRAY {
 		@Override
 		public void drawColor(GreenfootImage image) {
-			image.setColor(Color.ORANGE);
+			image.setColor(Color.GRAY);
 		};
 	};
 
@@ -41,9 +41,9 @@ public enum BallColors {
 		if (which == 0) {
 			return GREEN;
 		}else if (which == 1) {
-			return BLUE;
+			return MAGENTA;
 		}else if (which == 2) {
-			return ORANGE;
+			return GRAY;
 		}
 			return RED;
 		

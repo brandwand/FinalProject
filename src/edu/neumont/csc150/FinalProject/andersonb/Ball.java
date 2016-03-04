@@ -16,6 +16,8 @@ public class Ball extends Actor {
 	private boolean isMovingDown;
 	private int time = 0;
 	private World w;
+	private int numberOfJumps = 2;
+
 	public Ball(World w, double x, double y) {
 		super();
 		w.addObject(this, (int) x, (int) y);
@@ -26,32 +28,34 @@ public class Ball extends Actor {
 
 	public void act() {
 		time++;
+		gravity();
+		bounceHigher();
+		System.out.println(numberOfJumps);
 		touchedGround();
 		touchedCoin();
-		gravity();
 		bouncingOffTheTop();
 		moveRight();
 		moveLeft();
-		bounceHigher();
 		isMovingDownTrue();
 		stayingInScreen();
 		setLocation((int) x, (int) y);
 	}
-	
+
 	public void touchedCoin() {
-		if(isTouching(Coin.class)) {
-			Levels Level =(Levels)getWorld();
-			Score score = Level.getScore();
+		if (isTouching(Coin.class)) {
+			Levels level = (Levels) getWorld();
+			Score score = level.getScore();
 			score.addScore();
 			removeTouching(Coin.class);
 		}
 	}
-	
+
 	public void touchedGround() {
-		if(y > 590) {
-			Levels Level =(Levels)getWorld();
-			Lives lives = Level.getLives();
+		if (y > 585) {
+			Levels level = (Levels) getWorld();
+			Lives lives = level.getLives();
 			lives.subtractLives();
+			numberOfJumps = 2;
 		}
 	}
 
@@ -78,7 +82,10 @@ public class Ball extends Actor {
 
 	public void bounceHigher() {
 		if (Greenfoot.mousePressed(getWorld())) {
-			velY = -25;
+			if (numberOfJumps > 0) {
+				numberOfJumps--;
+				velY = -25;
+			}
 		}
 	}
 
@@ -107,6 +114,7 @@ public class Ball extends Actor {
 			}
 		}
 		if (isTouching(SimpleShape.class) || isTouching(Platform.class)) {
+			numberOfJumps = 2;
 			if (isMovingDown) {
 				velY *= -.96;
 			}
@@ -120,7 +128,7 @@ public class Ball extends Actor {
 	public void bouncingOffTheTop() {
 		if (y < 10) {
 			if (velY < 0) {
-				velY *= -.96;
+				velY *= -.5;
 			}
 		}
 	}
