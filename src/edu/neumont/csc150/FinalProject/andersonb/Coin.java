@@ -10,8 +10,6 @@ public class Coin extends Actor {
 	private double x;
 	private double y;
 	private Score score;
-	private FirstLevel level;
-
 	public Coin(World world, double x, double y) {
 
 		world.addObject(this, (int) x, (int) y);

@@ -18,7 +18,7 @@ public class Lives extends Actor {
 
 	public void act() {
 		Color c = new Color(0, 0, 0, 0);
-		setImage(new GreenfootImage("Lives: " + lives, 24, Color.ORANGE, c));
+		setImage(new GreenfootImage("Lives: " + lives, 50, Color.ORANGE, c));
 		setLocation((int) x, (int) y);
 		if(lives == 0) {
 			Greenfoot.setWorld(new MainMenu());

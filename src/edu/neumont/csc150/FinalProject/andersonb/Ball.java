@@ -1,6 +1,8 @@
 package edu.neumont.csc150.FinalProject.andersonb;
 import greenfoot.GreenfootImage;
 import greenfoot.World;
+import greenfoot.collision.CollisionChecker;
+import greenfoot.collision.CollisionQuery;
 
 import java.awt.Color;
 
@@ -24,6 +26,7 @@ public class Ball extends Actor {
 		this.x = x;
 		this.y = y;
 		this.w = w;
+	
 	}
 
 	public void act() {
@@ -81,7 +84,7 @@ public class Ball extends Actor {
 	}
 
 	public void bounceHigher() {
-		if (Greenfoot.mousePressed(getWorld())) {
+		if (Greenfoot.mousePressed(null)) {
 			if (numberOfJumps > 0) {
 				numberOfJumps--;
 				velY = -25;
