@@ -8,11 +8,13 @@ public class Score extends Actor {
 	private int score = 0;
 	private double x;
 	private double y;
+	private ScoreLogger scoreLogger;
 
-	public Score(World world, double x, double y) {
-		world.addObject(this, (int) x, (int) y);
+	public Score(double x, double y, ScoreLogger scoreLogger) {
+		
 		this.x = x;
 		this.y = y;
+		this.scoreLogger  = scoreLogger;
 	}
 
 	public void act() {
@@ -23,12 +25,13 @@ public class Score extends Actor {
 
 	public void addScore() {
 		score++;
+		scoreLogger.recordScore(score);
 	}
 
 	public void subtractScore() {
 		score--;
 	}
-	
+
 	public int getScore() {
 		return score;
 	}

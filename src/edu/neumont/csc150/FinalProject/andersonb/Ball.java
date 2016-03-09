@@ -16,7 +16,6 @@ public class Ball extends Actor {
 	private double velY = 1.2;
 	private double accel = 1.6;
 	private boolean isMovingDown;
-	private int time = 0;
 	private World w;
 	private int numberOfJumps = 2;
 
@@ -26,14 +25,12 @@ public class Ball extends Actor {
 		this.x = x;
 		this.y = y;
 		this.w = w;
-	
 	}
 
 	public void act() {
-		time++;
+		turn(10);
 		gravity();
 		bounceHigher();
-		System.out.println(numberOfJumps);
 		touchedGround();
 		touchedCoin();
 		bouncingOffTheTop();

@@ -13,21 +13,26 @@ public class SimpleShape extends Actor {
 	Random rand = new Random();
 	BallColors b;
 	ShapeSize s;
-	private Ball ball;
 	private boolean isXMovingLeft = rand.nextBoolean();
 	private boolean isXMovingRight = rand.nextBoolean();
-	private int length = 0;
-	private int time = 0;
 	private int changeX = 0;
 	private int changeY = 0;
-	private boolean whereStopped;
-
+/**
+ * 
+ * @param w
+ * @param x
+ * @param y
+ * @param b
+ * @param s
+ * @param length
+ * @param changeX
+ * @param changeY
+ */
 	public SimpleShape(World w, double x, double y, BallColors b, ShapeSize s, int length, int changeX, int changeY) {
 		this.b = b;
 		this.s = s;
 		this.changeX = changeX;
 		this.changeY = changeY;
-		this.length = length;
 		i = new GreenfootImage(length, 25);
 		b.drawColor(i);
 		s.drawSize(i);

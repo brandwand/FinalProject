@@ -14,9 +14,9 @@ public class SecondLevelBall extends Ball {
 	public SecondLevelBall(World w, double x, double y, BallColors b) {
 		super(w, x, y);
 		this.b = b;
-		i = new GreenfootImage(25, 15);
+		i = new GreenfootImage(25, 25);
 		b.drawColor(i);
-		i.fillRect(0, 0, 25, 15);
+		i.fillRect(0, 0, 25, 25);
 		setImage(i);
 	}
 }
