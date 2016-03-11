@@ -1,7 +1,6 @@
 package edu.neumont.csc150.FinalProject.andersonb;
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
-import greenfoot.World;
 
 public class Coin extends Actor {
 
@@ -9,10 +8,8 @@ public class Coin extends Actor {
 	int time = 0;
 	private double x;
 	private double y;
-	private Score score;
-	public Coin(World world, double x, double y) {
-
-		world.addObject(this, (int) x, (int) y);
+	
+	public Coin(double x, double y) {
 		this.x = x;
 		this.y = y;
 
@@ -28,7 +25,7 @@ public class Coin extends Actor {
 		if (x == 0) {
 			getWorld().removeObject(this);
 		}
-		
+
 		setLocation((int) x, (int) y);
 
 	}

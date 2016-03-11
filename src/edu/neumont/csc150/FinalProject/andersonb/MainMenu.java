@@ -11,22 +11,36 @@ import greenfoot.World;
 public class MainMenu extends World {
 	private static final Integer WIDTH = 800;
 	private static final Integer HEIGHT = 600;
-	Random rand = new Random();
-	private GreenfootImage background = new GreenfootImage("Obsticles/Home.png");
+	private Random rand = new Random();
+	private GreenfootImage background;
 	private Score score;
 	private HighScore h;
+	private ScoreLogger scoreLogger;
 
 	
 	public MainMenu() {
 		super(800, 600, 1, false);
+		background = new GreenfootImage("Obsticles/Home.png");
 		setBackground(background);
-		h = new HighScore();
-		readScore();	
+		h = new HighScore(100, 100);
+		addObject(h, WIDTH / 2, 200);
 	}
 
 	public void act() {
 		if (Greenfoot.mousePressed(this)) {
 			Greenfoot.setWorld(new Levels());
+		}
+	}
+	public void readScore() {
+		try {
+			FileReader fr = new FileReader("C:\\Users\\Brandon\\OOP\\FinalProject\\HighScore.txt");
+			fr.read();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 }

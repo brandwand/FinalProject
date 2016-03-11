@@ -12,13 +12,12 @@ public class Platform extends Actor {
 	private double x, y;
 	private int time = 0;
 	private GreenfootImage i;
-	public Platform(World w, double x, double y) {
+	public Platform(double x, double y) {
 		i = new GreenfootImage(800, 25);
 		i.fillRect(0, 0, 800, 25);
 		setImage(i);
 		this.x = x;
 		this.y = y;
-		w.addObject(this, (int) x, (int) y);
 	}
 	
 	public void act() {	

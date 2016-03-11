@@ -7,9 +7,8 @@ import greenfoot.World;
 
 public class Lives extends Actor {
 	private int lives = 3;
-	private double x;
-	private double y;
-
+	private double x, y;
+	private Color c;
 	public Lives(World world, double x, double y) {
 		world.addObject(this, (int) x, (int) y);
 		this.x = x;
@@ -17,10 +16,10 @@ public class Lives extends Actor {
 	}
 
 	public void act() {
-		Color c = new Color(0, 0, 0, 0);
+		c = new Color(0, 0, 0, 0);
 		setImage(new GreenfootImage("Lives: " + lives, 50, Color.ORANGE, c));
 		setLocation((int) x, (int) y);
-		if(lives == 0) {
+		if (lives == 0) {
 			Greenfoot.setWorld(new MainMenu());
 		}
 	}
@@ -31,9 +30,5 @@ public class Lives extends Actor {
 
 	public void subtractLives() {
 		lives--;
-	}
-	
-	public int getLives() {
-		return lives;
 	}
 }

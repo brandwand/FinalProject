@@ -1,12 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-import greenfoot.GreenfootImage;
-import greenfoot.World;
-import greenfoot.collision.CollisionChecker;
-import greenfoot.collision.CollisionQuery;
-
-import java.awt.Color;
-
-import org.omg.Messaging.SyncScopeHelper;
 
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
@@ -16,15 +8,13 @@ public class Ball extends Actor {
 	private double velY = 1.2;
 	private double accel = 1.6;
 	private boolean isMovingDown;
-	private World w;
 	private int numberOfJumps = 2;
 
-	public Ball(World w, double x, double y) {
+	public Ball(double x, double y) {
 		super();
-		w.addObject(this, (int) x, (int) y);
 		this.x = x;
 		this.y = y;
-		this.w = w;
+		
 	}
 
 	public void act() {
@@ -39,6 +29,13 @@ public class Ball extends Actor {
 		isMovingDownTrue();
 		stayingInScreen();
 		setLocation((int) x, (int) y);
+	}
+	
+	public void setX(int x) {
+		this.x = x;
+	}
+	public void setY(int y) {
+		this.y = y;
 	}
 
 	public void touchedCoin() {

@@ -2,13 +2,12 @@ package edu.neumont.csc150.FinalProject.andersonb;
 import java.awt.Color;
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
-import greenfoot.World;
 
 public class Score extends Actor {
 	private int score = 0;
-	private double x;
-	private double y;
+	private double x, y;
 	private ScoreLogger scoreLogger;
+	private Color c;
 
 	public Score(double x, double y, ScoreLogger scoreLogger) {
 		
@@ -18,7 +17,7 @@ public class Score extends Actor {
 	}
 
 	public void act() {
-		Color c = new Color(0, 0, 0, 0);
+		c = new Color(0, 0, 0, 0);
 		setImage(new GreenfootImage("Score: " + score, 50, Color.ORANGE, c));
 		setLocation((int) x, (int) y);
 	}
