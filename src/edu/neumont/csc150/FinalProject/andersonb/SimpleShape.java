@@ -3,7 +3,6 @@ import java.awt.Color;
 
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
-import greenfoot.World;
 import java.util.Random;
 
 public class SimpleShape extends Actor {

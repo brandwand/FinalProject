@@ -1,7 +1,4 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-import java.awt.Color;
-import java.util.Random;
-
 import greenfoot.GreenfootImage;
 
 public enum ShapeSize {

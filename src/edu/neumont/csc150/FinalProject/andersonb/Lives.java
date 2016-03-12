@@ -24,10 +24,6 @@ public class Lives extends Actor {
 		}
 	}
 
-	public void addLives() {
-		lives++;
-	}
-
 	public void subtractLives() {
 		lives--;
 	}

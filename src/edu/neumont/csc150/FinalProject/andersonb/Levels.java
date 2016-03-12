@@ -36,7 +36,6 @@ public class Levels extends World {
 		} else {
 			sb = new SecondLevelBall(25, 300, BallColors.getColor());
 			addObject(sb, 25, 300);
-
 		}
 	}
 

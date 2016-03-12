@@ -1,11 +1,9 @@
 package edu.neumont.csc150.FinalProject.andersonb;
 import greenfoot.GreenfootImage;
-import java.util.Random;
 
 public class SecondLevelBall extends Ball {
 
 	private GreenfootImage i;
-	private Random rand = new Random();
 	private BallColors b;
 	private double x, y;
 

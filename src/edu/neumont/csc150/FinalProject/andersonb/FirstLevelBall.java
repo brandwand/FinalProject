@@ -6,7 +6,6 @@ public class FirstLevelBall extends Ball {
 
 	private GreenfootImage i;
 	private BallColors b;
-	private Random rand = new Random();
 	private double x, y;
 
 	public FirstLevelBall(double x, double y, BallColors b) {

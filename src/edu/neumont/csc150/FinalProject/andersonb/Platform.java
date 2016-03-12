@@ -1,11 +1,6 @@
 package edu.neumont.csc150.FinalProject.andersonb;
-import java.awt.Color;
-
 import greenfoot.Actor;
 import greenfoot.GreenfootImage;
-import greenfoot.World;
-import java.util.Random;
-
 
 public class Platform extends Actor {
 
